@@ -76,9 +76,15 @@ button {
 
 .layout {
   display: grid;
-  grid-template-columns: 310px minmax(360px, 1fr) 340px;
+  grid-template-columns: 310px minmax(360px, 1fr) 360px;
   gap: 14px;
   align-items: start;
+}
+
+.side {
+  display: grid;
+  gap: 14px;
+  align-content: start;
 }
 
 .editor,
@@ -136,7 +142,7 @@ textarea {
 
 .filters {
   display: grid;
-  grid-template-columns: 1fr 180px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 10px;
   margin-bottom: 12px;
 }
@@ -152,6 +158,68 @@ textarea {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: white;
+}
+
+.sample-card.is-pending {
+  border-color: var(--amber);
+  box-shadow: inset 0 0 0 1px rgb(185 130 37 / 35%);
+}
+
+.photo-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: repeating-linear-gradient(45deg, #efe4cf, #efe4cf 10px, #f6eedd 10px, #f6eedd 20px);
+  color: var(--amber);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.photo-placeholder.small {
+  aspect-ratio: 16 / 9;
+  border-radius: 6px;
+}
+
+.badge,
+.seq {
+  display: inline-block;
+  margin-left: 6px;
+  border-radius: 999px;
+  padding: 2px 9px;
+  font-size: 11px;
+  font-weight: 700;
+  vertical-align: middle;
+}
+
+.badge-active {
+  background: #e1efe9;
+  color: var(--accent);
+}
+
+.badge-pending {
+  background: #f7e9d2;
+  color: var(--amber);
+}
+
+.seq {
+  background: #e8f0eb;
+  color: var(--muted);
+}
+
+.sample-body .issues {
+  color: var(--amber);
+  font-weight: 700;
+}
+
+.sample-body .stamp,
+.neighbors {
+  font-size: 12px !important;
+}
+
+.neighbors {
+  color: var(--accent);
 }
 
 .sample-card img {
@@ -181,6 +249,7 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   gap: 8px;
   margin-top: 10px;
 }
@@ -196,10 +265,130 @@ textarea {
   width: auto;
 }
 
+.card-actions input:disabled + * {
+  opacity: 0.6;
+}
+
 .card-actions button {
   min-height: 32px;
   background: #e8f0eb;
   color: var(--ink);
+  padding: 0 10px;
+}
+
+.notice {
+  margin: 12px 0 0;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.notice-bad {
+  background: #f9e8d2;
+  border: 1px solid #e3c48f;
+  color: #7c5416;
+}
+
+.notice-ok {
+  background: #e3f0ea;
+  border: 1px solid #b7d5c8;
+  color: var(--accent);
+}
+
+/* 交接核销面板 */
+.review {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgb(251 253 249 / 92%);
+  box-shadow: 0 14px 42px rgb(28 58 47 / 10%);
+  padding: 16px;
+}
+
+.review-queue {
+  display: grid;
+  gap: 10px;
+  margin-top: 12px;
+  max-height: 460px;
+  overflow-y: auto;
+}
+
+.review-queue .empty {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.review-item {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: white;
+  padding: 10px;
+}
+
+.review-item.flash {
+  outline: 2px solid var(--accent);
+}
+
+.review-item.is-correcting {
+  border-color: var(--accent);
+}
+
+.review-item h4 {
+  margin: 8px 0;
+  font-size: 15px;
+}
+
+.review-item p {
+  margin: 4px 0;
+  color: var(--muted);
+  font-size: 12.5px;
+  line-height: 1.45;
+}
+
+.review-item .issues {
+  color: var(--amber);
+  font-weight: 700;
+}
+
+.review-thumb {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 6px;
+  background: #dfe9e4;
+}
+
+.review-photo img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 6px;
+  background: #dfe9e4;
+}
+
+.review-photo-hint {
+  color: var(--accent) !important;
+}
+
+.review-btns {
+  display: flex;
+  gap: 8px;
+}
+
+.review-btns button {
+  flex: 1;
+  min-height: 34px;
+  font-size: 13px;
+}
+
+button.ghost {
+  background: #ecefe8;
+  color: var(--ink);
+}
+
+.review-item label {
+  margin-top: 8px;
 }
 
 .compare-pane {

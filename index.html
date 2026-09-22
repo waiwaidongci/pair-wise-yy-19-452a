@@ -21,6 +21,15 @@
         <h2>样本录入</h2>
         <label>显微照片<input id="photoInput" type="file" accept="image/*"></label>
         <label>样本编号<input name="code" required placeholder="BX-17-03"></label>
+        <div class="pair">
+          <label>钻孔编号<input name="borehole" required placeholder="ZK1701"></label>
+          <label>采集人<input name="collector" required placeholder="张三"></label>
+        </div>
+        <div class="pair">
+          <label>层顶深度(m)<input name="layerTop" inputmode="decimal" placeholder="12.40"></label>
+          <label>层底深度(m)<input name="layerBottom" inputmode="decimal" placeholder="13.20"></label>
+        </div>
+        <label>岩层名称<input name="rockLayer" placeholder="如：花岗闪长岩；未判请留空或填“未判”"></label>
         <label>采样地点<input name="location" placeholder="剖面东侧第二层"></label>
         <div class="pair">
           <label>放大倍数<input name="magnification" placeholder="40x"></label>
@@ -34,13 +43,20 @@
         </div>
         <label>主要矿物<input name="minerals" placeholder="石英、斜长石、黑云母"></label>
         <label>颗粒结构<input name="texture" placeholder="半自形粒状、碎裂结构"></label>
-        <label>老师批注<textarea name="comment" rows="4" placeholder="记录鉴定依据或疑点"></textarea></label>
-        <button type="submit">保存样本</button>
+        <label>老师批注<textarea name="comment" rows="3" placeholder="记录鉴定依据或疑点"></textarea></label>
+        <p id="formNotice" class="notice" hidden></p>
+        <button type="submit">登记并归位</button>
       </form>
 
       <section class="board">
         <div class="filters">
           <input id="mineralFilter" placeholder="按矿物筛选">
+          <input id="boreholeFilter" placeholder="按钻孔筛选">
+          <select id="statusFilter">
+            <option value="">全部状态</option>
+            <option value="active">已归位核销</option>
+            <option value="pending">待复核</option>
+          </select>
           <select id="polarFilter">
             <option value="">全部偏光</option>
             <option>单偏光</option>
@@ -51,9 +67,16 @@
         <div id="sampleGrid" class="sample-grid"></div>
       </section>
 
-      <aside class="compare">
-        <h2>并排对比</h2>
-        <div id="comparePane" class="compare-pane"></div>
+      <aside class="side">
+        <section class="compare">
+          <h2>并排对比</h2>
+          <div id="comparePane" class="compare-pane"></div>
+        </section>
+        <section class="review">
+          <h2>交接核销 · 待复核</h2>
+          <label>当前复核人<input id="reviewerName" placeholder="复核须换人，不能与采集人相同"></label>
+          <div id="reviewQueue" class="review-queue"></div>
+        </section>
       </aside>
     </section>
   </main>
