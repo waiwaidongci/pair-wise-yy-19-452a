@@ -16,11 +16,22 @@
       <button id="exportBtn" type="button">导出观察清单</button>
     </header>
 
+    <p id="notice" class="notice" role="status" hidden></p>
+
     <section class="layout">
       <form id="sampleForm" class="editor">
         <h2>样本录入</h2>
         <label>显微照片<input id="photoInput" type="file" accept="image/*"></label>
         <label>样本编号<input name="code" required placeholder="BX-17-03"></label>
+        <label>钻孔编号<input name="borehole" required placeholder="ZK-3"></label>
+        <div class="pair">
+          <label>层顶深度(m)<input name="layerTop" type="number" step="0.01" required placeholder="12.50"></label>
+          <label>层底深度(m)<input name="layerBottom" type="number" step="0.01" required placeholder="13.20"></label>
+        </div>
+        <div class="pair">
+          <label>采集人<input name="collector" required placeholder="王野"></label>
+          <label>岩层<input name="rockLayer" placeholder="未判"></label>
+        </div>
         <label>采样地点<input name="location" placeholder="剖面东侧第二层"></label>
         <div class="pair">
           <label>放大倍数<input name="magnification" placeholder="40x"></label>

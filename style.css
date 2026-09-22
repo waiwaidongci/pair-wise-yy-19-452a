@@ -223,6 +223,78 @@ textarea {
   background: #dfe9e4;
 }
 
+.notice {
+  margin: 0 0 14px;
+  border: 1px solid var(--amber);
+  border-radius: 8px;
+  background: #fdf3df;
+  color: #6b4a10;
+  padding: 10px 12px;
+  font-size: 13px;
+}
+
+.badge {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 2px 8px;
+  font-size: 12px;
+  font-weight: 400;
+  vertical-align: middle;
+}
+
+.badge.ok {
+  background: #e2f2ea;
+  color: var(--accent);
+}
+
+.badge.pending {
+  background: #fbeccc;
+  color: #8a5a12;
+}
+
+.sample-card.pending {
+  background: #fffdf5;
+}
+
+.photo-placeholder {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4 / 3;
+  background: #dfe9e4;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.adjacent {
+  border-top: 1px dashed var(--line);
+  padding-top: 6px;
+}
+
+.review-box,
+.edit-box {
+  display: grid;
+  gap: 8px;
+  margin-top: 10px;
+  border-top: 1px dashed var(--line);
+  padding-top: 10px;
+}
+
+.review-box input,
+.edit-box input {
+  padding: 8px;
+  font-size: 13px;
+}
+
+.review-box .pair,
+.edit-box .pair {
+  gap: 8px;
+}
+
+.review-box button,
+.edit-box button {
+  min-height: 34px;
+}
+
 @media (max-width: 1120px) {
   .layout {
     grid-template-columns: 1fr;
